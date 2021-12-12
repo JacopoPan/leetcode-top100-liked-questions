@@ -31,7 +31,6 @@ class Solution:
                     max_water = water
         return max_water
 
-
 def main():
     sol = Solution()
     print('Output:', sol.maxArea([2,3,10,5,7,8,9]))
