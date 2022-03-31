@@ -1,6 +1,6 @@
 """
-Runtime: 100 ms, faster than 37.33% of Python3 online submissions for Populating Next Right Pointers in Each Node.
-Memory Usage: 15.9 MB, less than 23.72% of Python3 online submissions for Populating Next Right Pointers in Each Node.
+Runtime: 76 ms, faster than 69.96% of Python3 online submissions for Populating Next Right Pointers in Each Node.
+Memory Usage: 15.7 MB, less than 49.50% of Python3 online submissions for Populating Next Right Pointers in Each Node.
 """
 from typing import List
 from typing import Optional
