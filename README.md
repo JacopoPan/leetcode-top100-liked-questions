@@ -4,7 +4,7 @@ Python3 Solutions to [LeetCode's "Top 100 Liked Questions"](https://leetcode.com
 The type of code that might be useful in a coding interview. Or if John Travolta with a goatee needs you to hack the DoD in less than 60 seconds at a nightclub, that kind of stuff.
 
 Uploaded as I answer them. Run as:
-```
+```bash
 $ git clone git@github.com:JacopoPan/leetcode-top100-liked-questions.git
 $ cd leetcode-top100-liked-questions
 $ python3 solutions/123.\ Problem\ Name.py
@@ -14,7 +14,7 @@ $ python3 solutions/123.\ Problem\ Name.py
 
 ## Template
 
-```
+```python
 # import pdb; pdb.set_trace()
 from typing import List
 
@@ -37,7 +37,7 @@ if __name__ == "__main__":
 
 ## List and Tree Node Classes
 
-```
+```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -52,7 +52,7 @@ class ListNode:
 
 ## Traverse a Linked List
 
-```
+```python
 list_root = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
 
 def traverse_list(list_root):
@@ -67,7 +67,7 @@ if __name__ == "__main__":
 
 ## Traverse a Linked List with a Runner
 
-```
+```python
 list_root = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
 
 def traverse_list_runner(list_root):
@@ -90,7 +90,7 @@ if __name__ == "__main__":
 
 ## Tree Depth-First
 
-```
+```python
 tree_root = TreeNode(1, TreeNode(2, TreeNode(3, TreeNode(4), TreeNode(5, TreeNode(8), TreeNode(9))), None), TreeNode(6, None, TreeNode(7)))
 
 def tree_dfs(root):
@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
 ## Tree Breadth-First
 
-```
+```python
 from collections import deque
 
 tree_root = TreeNode(1, TreeNode(2, TreeNode(3, TreeNode(4), TreeNode(5, TreeNode(8), TreeNode(9))), None), TreeNode(6, None, TreeNode(7)))
@@ -128,7 +128,7 @@ if __name__ == "__main__":
 
 ## Graph Depth-First
 
-```
+```python
 graph = {
     'A' : ['B','C'],
     'B' : ['D', 'E'],
@@ -154,7 +154,7 @@ if __name__ == "__main__":
 
 ## Graph Breadth-First
 
-```
+```python
 from collections import deque
 
 graph = {
@@ -187,7 +187,7 @@ if __name__ == "__main__":
 
 ## Graph Topological Sort
 
-```
+```python
 graph = {
     'A' : ['B','C'],
     'B' : ['D', 'E'],
@@ -226,7 +226,7 @@ if __name__ == "__main__":
 
 ## Merge Sort
 
-```
+```python
 unsorted_list = [3, 7, 1, 3, 6, 3, 1, 9]
 
 def merge_sorted(list_one, list_two):
@@ -266,7 +266,7 @@ if __name__ == "__main__":
 
 ## Quick Sort
 
-```
+```python
 unsorted_list = [3, 7, 1, 3, 6, 3, 1, 9]
 
 def partition(unsorted_list, start_index, end_index):
@@ -305,7 +305,7 @@ if __name__ == "__main__":
 
 ## Syntax Tips
 
-```
+```python
 from functools import reduce
 from collections import defaultdict
 from collections import deque
