@@ -303,6 +303,70 @@ if __name__ == "__main__":
     print(unsorted_list)
 ``` 
 
+## Heapq
+
+```python
+from heapq import heappush, heappop, heapify
+
+unsorted_list = [3, 7, 1, 3, 6, 3, 1, 9]
+
+def heap():
+    heapify(unsorted_list)
+    print(unsorted_list)
+    heappush(unsorted_list, 2)
+    print(unsorted_list)
+    val = heappop(unsorted_list)
+    print(val, unsorted_list)
+
+if __name__ == "__main__":
+    print('Heap')
+    heap()
+```
+
+## (Dict) Trie
+
+```python
+word_list = ['app', 'apple', 'oath', 'pea', 'peanut']
+
+def trie(words):
+    trie={}
+    for word in words:
+        temp=trie
+        for character in word:
+            if character not in temp:
+                temp[character]={}
+            temp=temp[character]
+        temp['#']='%'
+    return trie
+
+if __name__ == "__main__":
+    print('Trie')
+    trie = trie(word_list)
+    print(trie)
+```
+
+## Dynamic Programming
+
+```python
+cache = {}
+
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        if n in cache.keys():
+            return cache[n]
+        else:
+            ans = fibonacci(n-1) + fibonacci(n-2)
+            cache[n] = ans
+            return ans
+
+if __name__ == "__main__":
+    print('Dynamic Programming: Top Down Fibonacci with Memoization')
+    ans = fibonacci(60)
+    print(ans)
+```
+
 ## Syntax Tips
 
 ```python
