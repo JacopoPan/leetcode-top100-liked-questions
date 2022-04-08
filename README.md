@@ -15,12 +15,18 @@ $ python3 solutions/123.\ Problem\ Name.py
 ## Template
 
 ```python
-# import pdb; pdb.set_trace()
+# import pdb; pdb.set_trace() # [s]tep into function; [l]ist 11 lines; [w]here in stack; # [p]rint (exp/var);
+                            # [b]reak at line no; [c]ontinue to break; [q]uit; [h]elp
+from functools import lru_cache # cache since Python 3.9
 from typing import List
 
 class Problem:
     def __init__(self):
         pass
+
+    @lru_cache
+    def methodZero(self, n: int=0) -> str:
+        return ''
 
     def methodOne(self, argName: List[int]) -> int:
         return -1
@@ -317,6 +323,8 @@ def heap():
     print(unsorted_list)
     val = heappop(unsorted_list)
     print(val, unsorted_list)
+    # other methods: heapq.heappushpop(heap, item); heapq.heapreplace(heap, item);
+    # heapq.merge(); heapq.nlargest(n); heapq.nsmallest(n)
 
 if __name__ == "__main__":
     print('Heap')
@@ -367,7 +375,79 @@ if __name__ == "__main__":
     print(ans)
 ```
 
-## Syntax Tips
+## Lists
+
+```python
+from collections import deque
+
+def lists():
+    working_list = []
+    print(working_list)
+    working_list.append(1)
+    print(working_list)
+    working_list.extend([2, 4])
+    print(working_list)
+    working_list.insert(2, 3)
+    print(working_list)
+    working_list.remove(3)
+    print(working_list)
+    working_list.pop()
+    print(working_list)
+    working_list.pop(0)
+    print(working_list)
+    del working_list[0]
+    print(working_list)
+    working_list = [1, 2, 3, 4]
+    idx = working_list.index(3)
+    print(idx, working_list)
+    count = working_list.count(3)
+    print(count, working_list)
+    working_list.sort(reverse=True)
+    print(working_list)
+    working_list.reverse()
+    print(working_list)
+    queue = deque([1, 2, 3, 4])
+    print(queue)
+    queue.popleft()
+    print(queue)
+
+if __name__ == "__main__":
+    print('Lists')
+    lists()
+```
+
+## Slicing Lists
+
+```python
+a = [1, 2, 3, 4, 5, 6, 7, 8]
+start = 2
+stop = 5
+step = 1
+
+def slicing():
+    print(a)
+    # Basic
+    print(a[start:stop])        # items start through stop-1
+    print(a[start:])            # items start through the rest of the array
+    print(a[:stop])             # items from the beginning through stop-1
+    print(a[:])                 # a copy of the whole array
+    print(a[start:stop:step])   # start through not past stop, by step
+    # Negative index
+    print(a[-1])                # last item in the array
+    print(a[-2:])               # last two items in the array
+    print(a[:-2])               # everything except the last two items
+    # Negative step
+    print(a[::-1])              # all items in the array, reversed
+    print(a[1::-1])             # the first two items, reversed
+    print(a[:-3:-1])            # the last two items, reversed
+    print(a[-3::-1])            # everything except the last two items, reversed
+
+if __name__ == "__main__":
+    print('Slicing')
+    slicing()
+```
+
+## More Syntax Tips
 
 ```python
 from functools import reduce
@@ -441,3 +521,5 @@ if __name__ == "__main__":
     print('Syntax Tips')
     syntax()
 ``` 
+
+
