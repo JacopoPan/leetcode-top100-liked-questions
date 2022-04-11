@@ -18,7 +18,7 @@ $ python3 solutions/123.\ Problem\ Name.py
 # import pdb; pdb.set_trace() # [s]tep into function; [l]ist 11 lines; [w]here in stack; # [p]rint (exp/var);
                             # [b]reak at line no; [c]ontinue to break; [q]uit; [h]elp
 from functools import lru_cache # cache since Python 3.9
-from typing import List
+from typing import List, Optional
 
 class Problem:
     def __init__(self):
@@ -28,12 +28,13 @@ class Problem:
     def methodZero(self, n: int=0) -> str:
         return ''
 
-    def methodOne(self, argName: List[int]) -> int:
+    def methodOne(self, argName: List[int]) -> Optional[int]:
         return -1
 
 def main():
     sol = Problem()
     ans = sol.methodOne([0,0,0])
+    assert ans == -1
     print(ans)
 
 if __name__ == "__main__":
@@ -372,6 +373,38 @@ def fibonacci(n):
 if __name__ == "__main__":
     print('Dynamic Programming: Top Down Fibonacci with Memoization')
     ans = fibonacci(60)
+    print(ans)
+```
+
+## Pemutations and Combinations
+
+```python
+def perms(candidates):
+    if len(candidates) <=1:
+        return [candidates]
+    else:
+        ans = []
+        prev = perms(candidates[1:])
+        for p in prev:
+            for i in range(len(candidates)):
+                ans.append(p[:i] + candidates[0:1] + p[i:])
+        return ans
+
+def combs(candidates):
+    if not candidates:
+        return [[]]
+    else:
+        ans = []
+        for c in combs(candidates[1:]):
+            ans.append(c)
+            ans.append(c+[candidates[0]])
+        return ans
+
+if __name__ == "__main__":
+    print('Permutations and Combinations')
+    ans = perms([0,1,2])
+    print(ans)
+    ans = combs([0,1,2])
     print(ans)
 ```
 
