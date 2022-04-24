@@ -95,6 +95,29 @@ if __name__ == "__main__":
     traverse_list_runner(list_root)
 ``` 
 
+## Reverse a Linked List
+
+```python
+list_root = ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5)))))
+
+def reverse_list(list_root):
+    prev = None
+    nxt = list_root
+    while nxt:
+        temp = nxt
+        nxt = nxt.next
+        temp.next = prev
+        prev = temp
+    return prev
+
+if __name__ == "__main__":
+    print('Reverse List')    
+    reverse = reverse_list(list_root)
+    while reverse:
+        print(reverse.val)
+        reverse = reverse.next
+```
+
 ## Tree Depth-First
 
 ```python
