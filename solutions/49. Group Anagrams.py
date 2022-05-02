@@ -10,7 +10,6 @@ class Solution:
         sorted_strs = []
         idx = []
         for i, s in enumerate(strs):
-            # sorted_strs.append(sorted(s))
             sorted_strs.append(self.generateHash(s))
             idx.append(i)
         ret = []
