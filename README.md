@@ -252,7 +252,67 @@ def topological_sort(graph):
 if __name__ == "__main__":
     print('Topological Sort')
     topological_sort(graph)
+```
+
+## Matrix Depth-First
+
+```python
+grid = [[0,1,1],[0,0,1],[0,0,2]]
+
+visited = set()
+ans = 9999.
+
+def matrix_dfs(grid, i, j, visited, steps):
+    if i<0 or j<0 or i>=len(grid) or j>=len(grid[0]):
+        return
+    if (i,j) in visited or grid[i][j] == 1:
+        return
+    if grid[i][j] == 2:
+        global ans
+        ans = min(ans, steps)
+    visited.add((i, j))
+    matrix_dfs(grid, i+1, j, visited, steps+1)
+    matrix_dfs(grid, i-1, j, visited, steps+1)
+    matrix_dfs(grid, i, j+1, visited, steps+1)
+    matrix_dfs(grid, i, j-1, visited, steps+1)
+
+if __name__ == "__main__":
+    print('Matrix DFS')
+    matrix_dfs(grid, 0, 0, visited, -1)
+    print('Shortest path: ', ans)
 ``` 
+
+## Matrix Breadth-First
+
+```python
+from collections import deque
+
+grid = [[0,1,1],[0,1,1],[0,0,2]]
+
+visited = set()
+queue = deque([])
+
+def matrix_bfs(grid, visited):
+    while queue:
+        x, y, dist = queue.popleft()
+        if x<0 or y<0 or x>=len(grid) or y>=len(grid[0]):
+            continue
+        if (x,y) in visited or grid[x][y] == 1:
+            continue
+        if grid[x][y] == 2:
+            return dist
+        visited.add((x, y))
+        queue.append((x+1, y, dist+1))
+        queue.append((x-1, y, dist+1))
+        queue.append((x, y+1, dist+1))
+        queue.append((x, y-1, dist+1))
+    return None
+
+if __name__ == "__main__":
+    print('Matrix BFS')
+    queue.append((0,0,0))
+    print('Shortest path: ', matrix_bfs(grid, visited))
+```
 
 ## Merge Sort
 
