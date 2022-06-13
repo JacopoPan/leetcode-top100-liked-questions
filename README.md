@@ -437,6 +437,28 @@ if __name__ == "__main__":
     print(trie)
 ```
 
+## Two Pointers
+
+```python
+barriers = [1, 8, 9, 4, 11, 15, 3, 5]
+
+def two_pointers(barriers):
+    i = 0
+    j = len(barriers)-1
+    max_water = (j-i)*min(barriers[i],barriers[j])
+    while i < j:
+        if barriers[i] < barriers[j]:
+            i += 1
+        else:
+            j -= 1
+        max_water = max(max_water, (j-i)*min(barriers[i],barriers[j]))
+    return max_water
+
+if __name__ == "__main__":
+    print('Two Pointers')
+    print('Max water: ', two_pointers(barriers))
+```
+
 ## Dynamic Programming
 
 ```python
