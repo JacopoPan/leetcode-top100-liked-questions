@@ -415,6 +415,82 @@ if __name__ == "__main__":
     heap()
 ```
 
+## Minimum Spanning Tree
+
+```python
+from heapq import heappush, heappop, heapify
+
+points = [[2,-3],[-17,-8],[13,8],[-17,-15]]
+
+def msp(points):
+    manhattan = lambda p1, p2: abs(p1[0]-p2[0]) + abs(p1[1]-p2[1])
+    edges = []
+    n = len(points)
+    for i in range(n):
+        for j in range(i+1,n):
+            edges.append((manhattan(points[i],points[j]),i,j))
+    heapify(edges)
+    visited = set()
+    ans = 0
+    while edges and len(visited) < n:
+        added = False
+        temp = []
+        while not added:
+            e = heappop(edges)
+            added = True
+            if not visited:
+                ans += e[0]
+                visited.add(e[1])
+                visited.add(e[2])
+            elif e[1] not in visited and e[2] in visited:
+                ans += e[0]
+                visited.add(e[1])
+            elif e[2] not in visited and e[1] in visited:
+                ans += e[0]
+                visited.add(e[2])
+            else:
+                temp.append(e)
+                added = False 
+        for e in temp:
+            heappush(edges, e)
+    return ans
+
+if __name__ == "__main__":
+    print('Minumum Spanning Tree')
+    print('Cost: ', msp(points))
+```
+
+## Dijkstra
+
+```python
+from heapq import heapify, heappop, heappush
+from collections import defaultdict
+
+costs = [[2,1,1],[2,3,1],[3,4,1]]
+
+def dijkstra(costs, num_nodes, source):
+    graph = defaultdict(list)
+    for (node, neigh, cost) in costs:
+        graph[node].append((neigh, cost))
+    priority_queue = [(0, source)]
+    heapify(priority_queue)
+    shortest_path = {}
+    while priority_queue:
+        cost, node = heappop(priority_queue)
+        if node not in shortest_path:
+            shortest_path[node] = cost
+            for neigh, neigh_cost in graph[node]:
+                heappush(priority_queue, (cost + neigh_cost, neigh))
+    if len(shortest_path) == num_nodes:
+        return max(shortest_path.values())
+    else:
+        return -1
+
+if __name__ == "__main__":
+    print('Dijkstra')
+    print('Delay: ', dijkstra(costs, 4, 2))
+```
+
 ## (Dict) Trie
 
 ```python
@@ -614,6 +690,10 @@ def syntax():
     set_of_items = set(items)
     print(set_of_items, 'is set of', items)
     # Defaultdict
+    # Defaultdict
+    def_dict = defaultdict(list)
+    def_dict['key'].append(1)
+    print(def_dict)
     def_dict = defaultdict(dict)
     def_dict['new_key']['second_key'] = 0
     print(def_dict)
