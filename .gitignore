@@ -1,5 +1,6 @@
 *.DS_Store
 test.py
+test.cpp
 data/
 
 # Byte-compiled / optimized / DLL files
