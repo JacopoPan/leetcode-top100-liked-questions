@@ -2,6 +2,7 @@
 test.py
 test.cpp
 a.out
+test.o
 data/
 
 # Byte-compiled / optimized / DLL files
