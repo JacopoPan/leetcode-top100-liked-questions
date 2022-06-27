@@ -1,9 +1,10 @@
 def solution(s):
+    # Your code here
     ans = -1
     div = 1
     while div <= len(s):
         if len(s)%div == 0:
-            #print(s[:len(s)//div])
+            # print(s[:len(s)//div])
             if s[:len(s)//div]*div == s:
                 ans = div
         div += 1
@@ -30,7 +31,7 @@ def solution(l, t):
     return [-1, -1]
 
 def solution(src, dest):
-    #Your code here
+    # Your code here
     def pos2Idx(p):
         return p//8, p%8
     def idx2Pos(i):
@@ -108,9 +109,9 @@ def solution(map):
     queue = deque([(0,0,False,1)])
     visited = set()
     while queue:
-        #print(queue)
+        # print(queue)
         x, y, rem, dist = queue.popleft()
-        #print(x,y,rem,dist)
+        # print(x,y,rem,dist)
         if x == len(map)-1 and y == len(map[0])-1:
             return dist
         if x<0 or y<0 or x>=len(map) or y>=len(map[0]):
@@ -131,3 +132,17 @@ def solution(map):
             queue.append((x, y+1, rem, dist+1))
             queue.append((x, y-1, rem, dist+1))
     return -1
+
+import itertools
+
+def solution(num_buns, num_required):
+    # Your code here
+    ans = [ [] for _ in range(num_buns) ]
+    num_uses = 1 + (num_buns - num_required)
+    key = 0
+    for team in itertools.combinations(list(range(num_buns)), num_uses):
+        # print(team, key)
+        for bunny in team:
+            ans[bunny].append(key)
+        key += 1
+    return ans
