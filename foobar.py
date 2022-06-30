@@ -249,3 +249,7 @@ def solution(s):
     # Your code here
     ans = help(Decimal(s))
     return '{0}'.format(ans)
+
+###
+
+b"{'success' : 'great', 'colleague' : 'esteemed', 'efforts' : 'incredible', 'achievement' : 'unlocked', 'rabbits' : 'safe', 'foo' : 'win!'}"
